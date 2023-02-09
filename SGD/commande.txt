@@ -1,0 +1,1 @@
+mongo -u ep298479 -p ep298479 -authenticationDatabase ep298479 -host mongo2.iem
