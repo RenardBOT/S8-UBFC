@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="tp1" version="4">
+  <OBJECT>
+    <ID name="tp1" mc="Standard.Package" uid="fbfce1fa-b1e3-4c1e-b4be-ba30a5f5f412"/>
+    <PID name="TP1" mc="Standard.Project" uid="806b229b-d07b-4488-9cfa-14ceb0631559"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[tp1]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Etudiant" mc="Standard.Actor" uid="cdcd43cf-2682-4680-9480-e4b871a591ac"/>
+        <COMPID name="Personne" mc="Standard.Actor" uid="25b3f194-e693-407b-8004-c7435d582d2b"/>
+        <COMPID name="Enseignant" mc="Standard.Actor" uid="b68833fa-36db-4e8a-ac47-0497ee03fb16"/>
+        <COMPID name="Responsable" mc="Standard.Actor" uid="40f548df-4ecb-4a2a-ae9d-49c96282a619"/>
+        <COMPID name="Consulter le planning" mc="Standard.UseCase" uid="318017cc-f472-4290-ab7c-7f664421dd97"/>
+        <COMPID name="Réserver une salle" mc="Standard.UseCase" uid="b4f07322-e4c3-469a-97ac-de841d00bcb1"/>
+        <COMPID name="Réserver du matériel" mc="Standard.UseCase" uid="f0e439f6-281f-4af3-b89f-32daa6acbd18"/>
+        <COMPID name="Réserver" mc="Standard.UseCase" uid="bfdcd2d5-6c82-40b0-b991-022a5efc6032"/>
+        <COMPID name="Vérifier la disponibilité" mc="Standard.UseCase" uid="9d98814f-5c8d-4ec0-8ce0-4731e1bc0646"/>
+        <COMPID name="Réserver un ordinateur" mc="Standard.UseCase" uid="04b27dbc-cd67-4cd8-a36a-ffbf6b92cc90"/>
+        <COMPID name="Réserver un projecteur" mc="Standard.UseCase" uid="03d501ae-e708-4889-9b47-405a16aaa2a5"/>
+        <COMPID name="Vérifier la disponibilité du matériel" mc="Standard.UseCase" uid="ad876443-db92-4f69-bd45-c780873ccb21"/>
+        <COMPID name="Vérifier la disponibilité d'un ordinateur" mc="Standard.UseCase" uid="7ba4346d-414c-4dd0-b153-4bf84dca32a1"/>
+        <COMPID name="Vérifier la disponibilité d'une salle" mc="Standard.UseCase" uid="44a267be-3cd9-488f-9823-581ab9218837"/>
+        <COMPID name="Vérifier la disponibilité d'un projecteur" mc="Standard.UseCase" uid="2121a3fd-2010-4c45-9257-48d89ae0f686"/>
+        <COMPID name="Consulter le récapitulatif horaire par enseignant" mc="Standard.UseCase" uid="83d11575-c808-452a-b04c-4c8a933f912d"/>
+        <COMPID name="Editer les récapitulatifs horaires" mc="Standard.UseCase" uid="cc512050-fa2e-4b05-aa1a-1c2cdd121fc6"/>
+        <COMPID name="Planning des salles" mc="Standard.Actor" uid="d409cbf9-a45e-4956-845c-a78c4ec5e1cd"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Diagramme de cas d'utilisation tp1" mc="Standard.UseCaseDiagram" uid="444c553d-3ddb-4593-bf01-1688a4dd2c05"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

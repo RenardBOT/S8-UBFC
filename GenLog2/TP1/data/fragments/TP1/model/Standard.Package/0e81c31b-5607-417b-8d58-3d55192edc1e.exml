@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Fleurs" version="4">
+  <OBJECT>
+    <ID name="Fleurs" mc="Standard.Package" uid="0e81c31b-5607-417b-8d58-3d55192edc1e"/>
+    <PID name="TP1" mc="Standard.Project" uid="806b229b-d07b-4488-9cfa-14ceb0631559"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Fleurs]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="Interaction" mc="Standard.Interaction" uid="9229d17b-3f89-428a-8862-aae2646d5765"/>
+        <COMPID name="Communication Interaction" mc="Standard.CommunicationInteraction" uid="2053ce3e-427f-4001-8e23-30eec3bc94aa"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
