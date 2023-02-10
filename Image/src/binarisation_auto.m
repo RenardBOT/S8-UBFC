@@ -8,7 +8,7 @@ I1 = rgb2gray(I1);
 I1 = rescale(I1,0,1);
 
 
-threshold = graythresh(I1)
+threshold = graythresh(I1);
 I2 = I1 > threshold;
 
 f1 = figure;

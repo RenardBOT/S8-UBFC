@@ -1,36 +1,37 @@
-function [Iout] = etirement(path)
+function [Iout] = specification(path1,path2)
 % ETIREMENT étire l'histogramme sur la plage [0;255]
 % Possible d'affecter la nouvelle image à une variable
 % en appelant par exemple I = etirement(chemin)
 
 % Lecture de l'image
-I = imread(path);
+Iori = im2gray(imread(path1));
+Iref = im2gray(imread(path2));
 
 % Identification des niveaux de gris maximum et minimum
-Imax = max(max(I));
-Imin = min(min(I));
+% Imax = max(max(I));
+% Imin = min(min(I));
+IHCori = histcounts(Iori,256,'Normalization','cumcount');
+IHCref = histcounts(Iref,256,'Normalization','cumcount');
 
 % Calcul de l'étirement dans la matrice sortie Iout 
-Iout = uint8(floor(255*double((I-Imin))/double(Imax-Imin)));
+[height,width] = size(I);
 
-% LOOKUP TABLE
-% Ordonee a l'origine
-alpha = -255*double(Imin)/double(Imax-Imin);
-% Coefficient directeur 
-beta = double(255/double(Imax - Imin));
-% Definition de la LUT par morceaux
-LUT = @(x) 0.*(x>=0 & x<Imin) + (beta*x+alpha).*(x>=Imin & x<Imax) + 255.*(x>=Imax);
+Iout = uint8(zeros([height,width]));
+for y = 1:height
+    for x = 1:width
+        Iout(y,x) = uint8(floor(255*IHCN(I(y,x)+1)));
+    end
+end
 
 % Phase d'affichage
-f = figure;
-f.Position = [100 100 800 1000];
+figure;
 
 % Affichage de l'image originale et de l'image étirée
 subplot(3,2,1);
-imshow(I);
+imshow(Iori);
 title('Image entrée');
 subplot(3,2,2);
-imshow(Iout);
+imshow(Iref);
 title('Image sortie');
 
 % Affichage de l'histograme de l'image originale et de l'image étirée
@@ -44,13 +45,10 @@ title('Histogramme image sortie');
 % Affichage de l'histogramme cumulé de l'image originale et de l'image
 % étirée
 subplot(3,2,5);
-fplot(LUT, [0 255],'LineWidth',2.5);
-hold on
-title(strcat('LUT(ax+b) b : ',num2str(alpha),' - a : ',num2str(beta)));
+histogram(I,255,'Normalization','cumcount','BinLimits',[0 255])
+title('HCN image entrée');
 subplot(3,2,6);
-histogram(Iout,255,'Normalization','cdf');
+histogram(Iout,255,'Normalization','cumcount')
 title('HCN image sortie');
-
-
 
 end
