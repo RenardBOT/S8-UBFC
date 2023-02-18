@@ -1,25 +1,34 @@
-function [Iout] = egalisation(path)
-% EGALISATION égalise l'histogramme sur la plage [0;255]
+function [Iout] = egalisation_octave(path)
+% ETIREMENT étire l'histogramme sur la plage [0;255]
 % Possible d'affecter la nouvelle image à une variable
-% en appelant par exemple I = egalisation(chemin)
+% en appelant par exemple I = etirement(chemin)
 
 % Lecture de l'image
-I = im2gray(imread(path));
+I = (imread(path));
 
-% Identification des niveaux de gris maximum et minimum
-% Imax = max(max(I));
-% Imin = min(min(I));
-IHCN = histcounts(I,256,'Normalization','cdf');
+% Si l'image est en couleur, on la convertit en niveaux de gris
+if ndims(I) == 3
+    I = rgb2gray(I);
+end
+
+
+% Histogramme cumulé normalisé de l'image originale
+[counts, edges]=histc(I(:), 0:255);
+IHCN = cumsum(counts) / sum(counts);
 
 % Calcul de l'égalisation dans la matrice sortie Iout 
-[height,width] = size(I);
 
+[height,width] = size(I);
 Iout = uint8(zeros([height,width]));
 for y = 1:height
     for x = 1:width
         Iout(y,x) = uint8(floor(255*IHCN(I(y,x)+1)));
     end
 end
+
+% Histogramme cumulé normalisé de l'image de sortie
+[countsOut, edgesOut]=histc(Iout(:), 0:255);
+IHCNout = cumsum(countsOut) / sum(countsOut);
 
 % Phase d'affichage
 figure;
@@ -34,19 +43,21 @@ title('Image sortie');
 
 % Affichage de l'histograme de l'image originale et de l'image égalisée
 subplot(3,2,3);
-histogram(I,255,'BinLimits',[0 255]);
+[countsIn, edgesIn] = hist(I(:), 0:255);
+bar(edgesIn, countsIn, "hist");
 title('Histogramme image entrée');
 subplot(3,2,4);
-histogram(Iout,255);
+[countsOut, edgesOut] = hist(Iout(:), 0:255);
+bar(edgesOut, countsOut, "hist");
 title('Histogramme image sortie');
 
 % Affichage de l'histogramme cumulé de l'image originale et de l'image
 % égalisée
 subplot(3,2,5);
-histogram(I,255,'Normalization','cumcount','BinLimits',[0 255])
+bar(0:255, IHCN);
 title('HCN image entrée');
 subplot(3,2,6);
-histogram(Iout,255,'Normalization','cumcount')
+bar(0:255, IHCNout);
 title('HCN image sortie');
 
 end
