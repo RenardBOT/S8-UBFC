@@ -1,4 +1,10 @@
 function [Iout] = specification_octave(path1, path2)
+  
+  % SPECIFICATION fait en sorte que l'histogramme d'une image source
+  % ressemble à celui d'une image référence (path1 source, path2 ref)
+  % Possible d'affecter la nouvelle image à une variable
+  % en appelant par exemple I = etirement(chemin1, chemin2)
+
   % Lecture de l'image source et l'image référence
   I = imread(path1);
   Iref = imread(path2);
